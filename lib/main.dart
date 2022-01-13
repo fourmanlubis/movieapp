@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'movieapp',
+      title: 'MovieApp',
       home: DetailsPage(),
     );
   }
@@ -23,30 +23,31 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 2,
-            margin: EdgeInsets.all(16.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Image.asset(
-                "assets/images/spiderman.jpg",
-                fit: BoxFit.cover,
+      body: SafeArea(
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 2,
+              margin: EdgeInsets.all(15.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Image.asset(
+                  "assets/images/spiderman.jpg",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(15.0),
-            child: Text("spiderman : No Way Home",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                )),
-          ),
-          Container(
+            Container(
+              margin: EdgeInsets.only(top: 16.0),
+              child: Text("Spiderman : No Way Home",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            Container(
               margin: EdgeInsets.only(top: 15.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -71,17 +72,37 @@ class DetailsPage extends StatelessWidget {
                       SizedBox(height: 8.0),
                       Text("40.000")
                     ],
-                  )
+                  ),
                 ],
-              )),
-          Container(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-                "pider-Man's identity has now been revealed, and Peter turns to Doctor Strange for help. however a mistake occurred, and it invited dangerous enemies from another world, they began to appear. It forces Peter to find out what it really means to be Spider-Man.",
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize: 16.0)),
-          ),
-        ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Text(
+                      "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 16.0)),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  Text(
+                      "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 16.0)),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  Text(
+                      "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 16.0)),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
