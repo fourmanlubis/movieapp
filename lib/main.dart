@@ -12,41 +12,74 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MovieApp',
-      home: DetailsPage(),
+      home: Homepages(),
     );
   }
 }
 
-class DetailsPage extends StatelessWidget {
-  const DetailsPage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
+    final double itemheigt = (size.height - kToolbarHeight - 30) / 2;
+    final double itemwidth = (size.width / 2;
+    
     return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
+      appBar: AppBar
+      body: GridView.count(
+        padding: EdgeInsets.all(16.0)
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        crossAxisCount: 2,
+        childAspectRatio: (itemwidht / itemHeight),
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height / 2,
-              margin: EdgeInsets.all(15.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15.0),
+             ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  "assets/images/ghostbusters.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+               ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  "assets/images/kingsman.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+               ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  "assets/images/matrix.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+               ClipRRect(
+                borderRadius: BorderRadius.circular(15),
                 child: Image.asset(
                   "assets/images/spiderman.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 16.0),
-              child: Text("Spiderman : No Way Home",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
+               ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  "assets/images/venom.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+               ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  "assets/images/spiderman.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            
+           
             Container(
               margin: EdgeInsets.only(top: 15.0),
               child: Row(
@@ -105,5 +138,14 @@ class DetailsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class DetailPagesspiderman extends StatefulWidget {
+  const DetailPagesspiderman({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
